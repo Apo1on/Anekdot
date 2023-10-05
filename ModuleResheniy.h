@@ -21,4 +21,4 @@ void ZapolnenieMas(double *mas, int n);
 // сохраняет массив в файл
 void SaveInFile(double* mas, int n, const std::string& way);
 // считывает данные с массива
-void OpenFromFile(double* mas, int n, const std::string& way);
+void OpenFromFile(double* &mas, int &n, const std::string& way);

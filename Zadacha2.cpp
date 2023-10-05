@@ -35,9 +35,4 @@ int main() {
 	cin >> stroka;
 	stroka = stroka + ".txt";
 	OpenFromFile(mas, n, stroka);
-
-	for (int i = 0; i < n; i++)
-	{
-		cout << mas[i] << endl;
-	}
 }

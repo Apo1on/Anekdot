@@ -55,24 +55,34 @@ void SaveInFile(double* mas, int n, const std::string& way)
 	File.close();
 }
 
-void OpenFromFile(double* mas, int n, const std::string& way)
+void OpenFromFile(double* &mas, int &n, const std::string& way)
 {
 	ifstream File;
-	int count = 0;
+	n = 0;
+	int i = 0;
 	string s;
 	File.open(way);
 	if (File.is_open())
 	{
 		while(!File.eof())
 			{
-			count++;
+			n++;
 			getline(File, s);
 			};
+		File.close();
+		File.open(way);
+		
+		double* mas = new double[n-1];
+		for (size_t j = 0; j < n; j++)
+		{
+			mas[j] = 0.0;
+		};
+		while(!File.eof())
+		{
+			getline(File, s);
+			mas[i] = atof(s.c_str());
+			i++;
+		}
 	};
-	double* mas = new double[n];
-	for (size_t i = 0; i < count; i++)
-	{
-		getline(File, mas[i]);
-	}
 }
 
