@@ -34,11 +34,10 @@ int main() {
 	cout << "Введите название файла из которого вернется (без  .txt): ";
 	cin >> stroka;
 	stroka = stroka + ".txt";
-	cout << stroka << endl;
 	OpenFromFile(mas, n, stroka);
 
 	for (int i = 0; i < n; i++)
 	{
-		cout << stroka << endl;
+		cout << mas[i] << endl;
 	}
 }

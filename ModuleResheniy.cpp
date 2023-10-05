@@ -34,7 +34,7 @@ double Reshenie (double n)
 // считает сумму всех элементов
 double Summ(double *mas, int n)
 {
-	double summa;
+	double summa =0.0;
 	// идет по массиву складывая значения		
 	for(int i = 0; i < n; i++)
 	{
@@ -58,12 +58,21 @@ void SaveInFile(double* mas, int n, const std::string& way)
 void OpenFromFile(double* mas, int n, const std::string& way)
 {
 	ifstream File;
+	int count = 0;
+	string s;
 	File.open(way);
-	if (File.is_open()){
-		for(int i = 0; i<n; i++)
+	if (File.is_open())
+	{
+		while(!File.eof())
 			{
-				File >> mas[i];
+			count++;
+			getline(File, s);
 			};
 	};
+	double* mas = new double[n];
+	for (size_t i = 0; i < count; i++)
+	{
+		getline(File, mas[i]);
+	}
 }
 
