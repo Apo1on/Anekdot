@@ -34,13 +34,13 @@ double Reshenie (double n)
 // считает сумму всех элементов
 double Summ(double *mas, int n)
 {
-	double sum;
+	double summa;
 	// идет по массиву складывая значения		
 	for(int i = 0; i < n; i++)
 	{
-		sum = sum + Reshenie(mas[i]);
+		summa = summa + Reshenie(mas[i]);
 	}
-	return sum;
+	return summa;
 }
 
 void SaveInFile(double* mas, int n, const std::string& way)
