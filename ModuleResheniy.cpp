@@ -79,8 +79,8 @@ void OpenFromFile(double* &mas, int &n, const std::string& way)
 		};
 		while(!File.eof())
 		{
-			getline(File, s);
-			mas[i] = atof(s.c_str());
+			//getline(File, s);
+			File >> mas[i];
 			i++;
 		}
 	};
