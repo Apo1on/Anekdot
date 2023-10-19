@@ -6,13 +6,20 @@ using namespace std;			// пространоство имен
 //https://ivtipm.github.io/Programming/Glava06/index06.htm#z136
 
 // главная часть
-int main() {
+int main(int argc, char* argv[]) {
 	int n;
 	setlocale(LC_ALL, "Russian"); // меняет язык на русский
-
-	cout << "Введите размер массива:";
-	cin >> n;
-	cout << endl;
+	if (argc == 2) {
+		//argv[0] // имя файла
+		n = stoi(argv[1]);
+	}
+	else {
+		// ввод N
+		cout << "Введите размер массива:";
+		cin >> n;
+		cout << endl;
+	}
+	
 
 	double* mas = new double[n];
 
