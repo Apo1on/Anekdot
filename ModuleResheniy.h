@@ -22,3 +22,5 @@ void ZapolnenieMas(double *mas, int n);
 void SaveInFile(double* mas, int n, const std::string& way);
 // считывает данные с массива
 void OpenFromFile(double* &mas, int &n, const std::string& way);
+// узнает количество элементов с файле
+int FSC(const std::string& way);

@@ -55,34 +55,33 @@ void SaveInFile(double* mas, int n, const std::string& way)
 	File.close();
 }
 
+int FSC(const string& way) {
+	string s;
+	int count = 0;
+	ifstream f(way, ios::in);
+	if (f.is_open()) {
+		while (!f.eof()) {
+			count++;//пока файл не закончился читаем строки и увеличиваем счетчик
+			getline(f, s);
+		}
+	}
+	return count;
+}
+
 void OpenFromFile(double* &mas, int &n, const std::string& way)
 {
-	ifstream File;
+	ifstream Flic;
 	n = 0;
 	int i = 0;
 	string s;
-	File.open(way);
-	if (File.is_open())
+	Flic.open(way);
+	if (Flic.is_open())
 	{
-		while(!File.eof())
-			{
-			n++;
-			getline(File, s);
-			};
-		File.close();
-		File.open(way);
-		
-		double* mas = new double[n-1];
-		for (size_t j = 0; j < n; j++)
+		for (unsigned i = 0; i < FSC(way)-1; i++)
 		{
-			mas[j] = 0.0;
-		};
-		while(!File.eof())
-		{
-			//getline(File, s);
-			File >> mas[i];
-			i++;
+			Flic >> mas[i];
 		}
 	};
+	n = FSC(way) - 1;
 }
 
