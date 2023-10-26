@@ -7,6 +7,7 @@
 #include <string>				// модуль строк
 #include <iostream>
 #include <fstream>				// модуль файла
+#include <cassert>
 using namespace std;
 // создает случайное число в диапозионе от -100 до 100
 double RandomChislo()
@@ -32,18 +33,19 @@ double Reshenie (double n)
 }
 
 // считает сумму всех элементов
-double Summ(double *mas, int n)
+double Summ(const double *mas, int n)
 {
 	double summa =0.0;
 	// идет по массиву складывая значения		
-	for(int i = 0; i < n; i++)
+	for (int i = 0; i < n; i++)
 	{
 		summa = summa + Reshenie(mas[i]);
-	}
+			
+	};
 	return summa;
 }
 
-void SaveInFile(double* mas, int n, const std::string& way)
+void SaveInFile(const double* mas, int n, const std::string& way)
 {
 	ofstream File;
 	File.open(way);
@@ -59,6 +61,9 @@ int FSC(const string& way) {
 	string s;
 	int count = 0;
 	ifstream f(way, ios::in);
+
+	assert(f.is_open() == true);
+
 	if (f.is_open()) {
 		while (!f.eof()) {
 			count++;//пока файл не закончился читаем строки и увеличиваем счетчик
@@ -75,6 +80,12 @@ void OpenFromFile(double* &mas, int &n, const std::string& way)
 	int i = 0;
 	string s;
 	Flic.open(way);
+
+
+	assert(Flic.is_open() == true);
+	//assert(Flic.is_open() == false);
+
+
 	if (Flic.is_open())
 	{
 		for (unsigned i = 0; i < FSC(way)-1; i++)
