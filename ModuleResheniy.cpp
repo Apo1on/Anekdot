@@ -11,36 +11,35 @@
 using namespace std;
 // создает случайное число в диапозионе от -100 до 100
 // интервал задается в ручную
-double RandomChislo()
+double RandomNumber(int min,int max)
 {
-	return 1.0 * rand() / RAND_MAX * 200 - 100;
+	return 1.0 * rand() / RAND_MAX * max + min;
 }
 
 // заполняет массив случайными числами
-void ZapolnenieMas(double *mas, int n)
+void ZapolnenieMas(double *mas, const int& n, const int& min, const int& max)
 {
-	srand(time(NULL));
 	for (int i = 0; i< n; i++)
 	{
-		mas[i] = RandomChislo();
+		mas[i] = RandomNumber(min,max);
 	}
 }
 
 
 // вычисляет по заданной формуле
-double Reshenie (double n) 
-{
-	return (pow(sqrt(abs(n))-n,2));
-}
+//double Reshenie (double n) 
+//{
+//	return ();
+//}
 
 // считает сумму всех элементов
-double Summ(const double *mas, int n)
+double Summ(const double *mas, const int& n)
 {
 	double summa =0.0;
 	// идет по массиву складывая значения		
 	for (int i = 0; i < n; i++)
 	{
-		summa = summa + Reshenie(mas[i]);
+		summa = summa + pow(sqrt(abs(mas[i])) - mas[i], 2);
 			
 	};
 	return summa;
@@ -83,9 +82,7 @@ void OpenFromFile(double* &mas, int &n, const std::string& way)
 	Flic.open(way);
 
 
-	assert(Flic.is_open() == true);
-	//assert(Flic.is_open() == false);
-
+	
 
 	if (Flic.is_open())
 	{

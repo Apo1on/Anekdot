@@ -13,13 +13,13 @@
 // Заносит значение в массив
 double Reshenie (double n); 
 // считает массив
-double Summ(double *mas, int n);
+double Summ(const double *mas, const int& n);
 // рандомит число
-double RandomChislo();
+double RandomNumber(int min,int max );
 // заполняет массив
-void ZapolnenieMas(double *mas, int n);
+void ZapolnenieMas(double *mas, const int& n, const int& min, const int& max);
 // сохраняет массив в файл
-void SaveInFile(double* mas, int n, const std::string& way);
+void SaveInFile(const double* mas, int n, const std::string& way);
 // считывает данные с массива
 void OpenFromFile(double* &mas, int &n, const std::string& way);
 // узнает количество элементов с файле
