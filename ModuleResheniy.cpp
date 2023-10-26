@@ -10,6 +10,7 @@
 #include <cassert>
 using namespace std;
 // создает случайное число в диапозионе от -100 до 100
+// интервал задается в ручную
 double RandomChislo()
 {
 	return 1.0 * rand() / RAND_MAX * 200 - 100;
