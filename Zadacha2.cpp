@@ -8,8 +8,21 @@ using namespace std;			// пространоство имен
 
 // главная часть
 int main(int argc, char* argv[]) {
+
+
+	// тестовый массив для ассерта
+	double* testMas = new double[3];
+	testMas[0] = 4;
+	testMas[1] = 9;
+	testMas[2] = 16;
+	// работа ассерта
+	// проверка единственной функции где есть вычисления
+	assert(Summ(testMas, 3) == 184);
+	delete[]testMas;
+
 	int n;
 	srand(time(NULL));
+
 	setlocale(LC_ALL, "Russian"); // меняет язык на русский
 	if (argc == 2) {
 		//argv[0] // имя файла
@@ -29,14 +42,7 @@ int main(int argc, char* argv[]) {
 
 	// в зависимости от введенного параметра вернет проверку или нет
 	double* mas = new double[n];
-	// тестовый массив для ассерта
-	double* testMas = new double[3];
-		testMas[0] = 4;
-		testMas[1] = 9;
-		testMas[2] = 16;
-		// работа ассерта
-		// проверка единственной функции где есть вычисления
-		assert(Summ(testMas, n) == 184);
+	
 	
 	
 	cout << Summ(mas, n) << endl;

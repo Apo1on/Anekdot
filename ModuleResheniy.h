@@ -15,7 +15,7 @@ double Reshenie (double n);
 // считает массив
 double Summ(const double *mas, const int& n);
 // заполняет массив
-void ZapolnenieMas(double *mas, const int& n, const int& min, const int& max);
+void FillMat(double *mas, const int& n, const int& min, const int& max);
 // сохраняет массив в файл
 void SaveInFile(const double* mas, int n, const std::string& way);
 // считывает данные с массива
