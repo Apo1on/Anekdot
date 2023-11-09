@@ -14,13 +14,11 @@
 double Reshenie (double n); 
 // считает массив
 double Summ(const double *mas, const int& n);
-// рандомит число
-double RandomNumber(int min,int max );
 // заполняет массив
 void ZapolnenieMas(double *mas, const int& n, const int& min, const int& max);
 // сохраняет массив в файл
 void SaveInFile(const double* mas, int n, const std::string& way);
 // считывает данные с массива
-void OpenFromFile(double* &mas, int &n, const std::string& way);
+int OpenFromFile(double* &mas, int &n, const std::string& way);
 // узнает количество элементов с файле
 int FSC(const std::string& way);

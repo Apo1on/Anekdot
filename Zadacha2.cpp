@@ -22,12 +22,6 @@ int main(int argc, char* argv[]) {
 		cout << endl;
 		
 	}
-	cout << "Проверять ассерт?(0 = да, иные = нет): ";
-	int flag; // флаг проверки
-	cin >> flag;
-	if (flag == 0) {
-		n = 3;
-	};
 	
 	int min, max;
 	cout << "Введите минимальное и максимальное значение: ";
@@ -35,42 +29,44 @@ int main(int argc, char* argv[]) {
 
 	// в зависимости от введенного параметра вернет проверку или нет
 	double* mas = new double[n];
-	if (flag == 0)
-	{
-		mas[0] = 4;
-		mas[1] = 9;
-		mas[2] = 16;
-	}
-	else{
-		ZapolnenieMas(mas, n,min,max);
-	}
-
-	// работа ассерта
-	if (flag == 0)
-	{
-		assert(Summ(mas, n) == 184);
-		//assert(Summ(mas, n) == 0);
-	};
+	// тестовый массив для ассерта
+	double* testMas = new double[3];
+		testMas[0] = 4;
+		testMas[1] = 9;
+		testMas[2] = 16;
+		// работа ассерта
+		// проверка единственной функции где есть вычисления
+		assert(Summ(testMas, n) == 184);
+	
 	
 	cout << Summ(mas, n) << endl;
 
 	string stroka;
-
-
 	cout << "Введите название файла в который сохранится (без .txt): ";
 	cin >> stroka;
 	stroka = stroka + ".txt";
 	cout << stroka << endl;
 
+	// сохранение в файл
 	SaveInFile(mas, n, stroka);
 	
 	cout << "Введите название файла из которого вернется (без  .txt): ";
 	cin >> stroka;
 	stroka = stroka + ".txt";
-	OpenFromFile(mas, n, stroka);
 
-	for (size_t i = 0; i < n; i++)
+	// вывод из файла
+	int flag;
+	flag = OpenFromFile(mas, n, stroka);
+
+	// вывод массива из файла
+	if (flag == 0)
 	{
-		cout << mas[i] << endl;
+		for (size_t i = 0; i < n; i++)
+		{
+			cout << mas[i] << endl;
+		}
+	}
+	else {
+		cout << " Ошибка имени файла!!";
 	}
 }
